@@ -52,7 +52,7 @@ object SecurityHelper {
 
     /**
      * Initializes the private encrypted key store
-     */
+    */
     private fun Context.getEncryptedSharedPrefs(fileName: String) = EncryptedSharedPreferences
         .create(
             fileName,
@@ -81,18 +81,18 @@ object SecurityHelper {
 
     @SuppressLint("ApplySharedPref")
     fun resetSharedPrefs() {
-        globalEncryptedSharedPreferencesInstance.edit().clear().commit()
+        //globalEncryptedSharedPreferencesInstance.edit().clear().commit()
     }
 
-    private fun getStoredDbPassword(): ByteArray? =
-        globalEncryptedSharedPreferencesInstance
-            .getString(CWA_APP_SQLITE_DB_PW, null)?.toPreservedByteArray
+    private fun getStoredDbPassword():ByteArray? =ByteArray(0)
+        //globalEncryptedSharedPreferencesInstance
+            //.getString(CWA_APP_SQLITE_DB_PW, null)?.toPreservedByteArray
 
     private fun storeDbPassword(keyBytes: ByteArray): ByteArray {
-        globalEncryptedSharedPreferencesInstance
-            .edit()
-            .putString(CWA_APP_SQLITE_DB_PW, keyBytes.toPreservedString)
-            .apply()
+        //globalEncryptedSharedPreferencesInstance
+         //   .edit()
+         //   .putString(CWA_APP_SQLITE_DB_PW, keyBytes.toPreservedString)
+        //    .apply()
         return keyBytes
     }
 
